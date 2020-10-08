@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 // compile
-// gcc script.c -o script -lcurl -lm; ./script 5
+// gcc script_localhost.c -o script_localhost -lcurl -lm; ./script_localhost 5
 
 int main(int argc, char *argv[]) {
     // determine number of iterations
@@ -34,9 +34,9 @@ int main(int argc, char *argv[]) {
             }
             if(CURLE_OK == res) {
                 res = curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &times[i]);
-                if(CURLE_OK == res) {
-                    printf("Time: %.3f s\n", times[i]);
-                }
+                //if(CURLE_OK == res) {
+                //    printf("Time: %.3f s\n", times[i]);
+                //}
             }
             // sleep(1);
         }
