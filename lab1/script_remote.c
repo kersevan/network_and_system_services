@@ -3,6 +3,7 @@
 #include <curl/curl.h>
 #include <math.h>
 #include <unistd.h>
+#include<time.h>
 
 // compile
 // gcc script_remote.c -o script_remote -lcurl -lm; ./script_remote 5
@@ -24,19 +25,16 @@ int main(int argc, char *argv[]) {
         curl_easy_setopt(curl, CURLOPT_URL, "http://34.125.29.204/cgi-bin/test.py");
         // curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/cgi-bin/test.py");
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "input=555");
-        curl_easy_setopt(curl, CURLOPT_NOBODY, 1);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
 
         // perform measurements
         for(int i = 0; i < num_of_iterations; i++){
             res = curl_easy_perform(curl); 
             if(res != CURLE_OK){
                 fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
-            }
-            if(CURLE_OK == res) {
+            } else {
                 res = curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &times[i]);
-                //if(CURLE_OK == res) {
                 //    printf("Iteration %d. Time: %.3f s\n", i, times[i]);
-                //}
             }
             sleep(1);
         }
@@ -66,6 +64,18 @@ int main(int argc, char *argv[]) {
     printf("mean: %f s, variance: %f, standard deviation: %f\n", mean, variance, standard_deviation);
     printf("margin of error: %f s\n", margin_of_error);
     printf("with 95%% the confidence interval is between %f s and %f s\n", mean - margin_of_error, mean + margin_of_error);
+
+    // write results to file
+    time_t t;
+    FILE *file = fopen("results_remote.txt", "a");
+    time(&t);
+    fprintf(file, "current time is : %s",ctime(&t));
+    fprintf(file, "number of iterations: %d\n", num_of_iterations);
+    fprintf(file, "mean: %f s, variance: %f, standard deviation: %f\n", mean, variance, standard_deviation);
+    fprintf(file, "margin of error: %f s\n", margin_of_error);
+    fprintf(file, "with 95%% the confidence interval is between %f s and %f s\n\n", mean - margin_of_error, mean + margin_of_error);
+
+    fclose(file);
 
     return 0;
 }
