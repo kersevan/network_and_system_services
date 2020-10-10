@@ -17,3 +17,57 @@ mean: 0.447019 s, variance: 0.000000, standard deviation: 0.000000
 margin of error: 0.000000 s
 with 95% the confidence interval is between 0.447019 s and 0.447019 s
 
+current time is : Fri Oct  9 19:03:36 2020
+number of iterations: 100
+mean: 0.294402 s, variance: 0.003260, standard deviation: 0.057094
+margin of error: 0.011190 s
+with 95% the confidence interval is between 0.283212 s and 0.305593 s
+
+current time is : Fri Oct  9 19:05:12 2020
+number of iterations: 10
+mean: 0.292359 s, variance: 0.003416, standard deviation: 0.058445
+margin of error: 0.036225 s
+with 95% the confidence interval is between 0.256134 s and 0.328583 s
+
+current time is : Fri Oct  9 19:10:51 2020
+number of iterations: 200
+mean: 0.315668 s, variance: 0.016174, standard deviation: 0.127178
+margin of error: 0.017626 s
+with 95% the confidence interval is between 0.298042 s and 0.333294 s
+
+current time is : Sat Oct 10 00:46:45 2020
+number of iterations: 200
+mean: 0.271063 s, variance: 0.000647, standard deviation: 0.025438
+margin of error: 0.003526 s
+with 95% the confidence interval is between 0.267538 s and 0.274589 s
+
+current time is : Sat Oct 10 10:27:39 2020
+number of iterations: 200
+mean: 0.272901 s, variance: 0.000839, standard deviation: 0.028969
+margin of error: 0.004015 s
+with 95% the confidence interval is between 0.268886 s and 0.276916 s
+
+current time is : Sat Oct 10 12:12:36 2020
+number of iterations: 200
+mean: 0.271101 s, variance: 0.000911, standard deviation: 0.030184
+margin of error: 0.004183 s
+with 95% the confidence interval is between 0.266918 s and 0.275284 s
+
+current time is : Sat Oct 10 14:31:15 2020
+number of iterations: 200
+mean: 0.277426 s, variance: 0.003306, standard deviation: 0.057496
+margin of error: 0.007969 s
+with 95% the confidence interval is between 0.269457 s and 0.285394 s
+
+current time is : Sat Oct 10 17:40:16 2020
+number of iterations: 200
+mean: 0.275438 s, variance: 0.001157, standard deviation: 0.034022
+margin of error: 0.004715 s
+with 95% the confidence interval is between 0.270723 s and 0.280153 s
+
+current time is : Sat Oct 10 19:28:30 2020
+number of iterations: 200
+mean: 0.273986 s, variance: 0.000748, standard deviation: 0.027350
+margin of error: 0.003791 s
+with 95% the confidence interval is between 0.270195 s and 0.277776 s
+

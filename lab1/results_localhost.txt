@@ -1,0 +1,24 @@
+current time is : Sat Oct 10 19:33:17 2020
+number of iterations: 10
+mean: 0.043724 s, variance: 0.000095, standard deviation: 0.009738
+margin of error: 0.006035 s
+with 95% the confidence interval is between 0.037689 s and 0.049760 s
+
+current time is : Sat Oct 10 19:35:36 2020
+number of iterations: 10
+mean: 0.044059 s, variance: 0.000168, standard deviation: 0.012942
+margin of error: 0.008022 s
+with 95% the confidence interval is between 0.036038 s and 0.052081 s
+
+current time is : Sat Oct 10 19:38:37 2020
+number of iterations: 200
+mean: 0.043757 s, variance: 0.000026, standard deviation: 0.005142
+margin of error: 0.000713 s
+with 95% the confidence interval is between 0.043045 s and 0.044470 s
+
+current time is : Sat Oct 10 19:41:21 2020
+number of iterations: 200
+mean: 0.042804 s, variance: 0.000029, standard deviation: 0.005350
+margin of error: 0.000741 s
+with 95% the confidence interval is between 0.042063 s and 0.043545 s
+
