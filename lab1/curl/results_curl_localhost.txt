@@ -1,0 +1,24 @@
+ned 11 okt 2020 14:40:20 WEST
+1.connect=0,000438:transfer=0,000489:total=0,055727
+2.connect=0,000475:transfer=0,000535:total=0,042011
+3.connect=0,000340:transfer=0,000376:total=0,037186
+4.connect=0,000307:transfer=0,000344:total=0,037198
+5.connect=0,000323:transfer=0,000358:total=0,036909
+6.connect=0,000307:transfer=0,000343:total=0,037571
+7.connect=0,000317:transfer=0,000368:total=0,036835
+8.connect=0,000305:transfer=0,000339:total=0,038312
+9.connect=0,000321:transfer=0,000357:total=0,037095
+10.connect=0,000322:transfer=0,000356:total=0,037388
+---------------------------------------------------------------
+ned 11 okt 2020 14:40:21 WEST
+1.connect=0,000521:transfer=0,000586:total=0,051149
+2.connect=0,000329:transfer=0,000366:total=0,037236
+3.connect=0,000314:transfer=0,000349:total=0,037460
+4.connect=0,000359:transfer=0,000394:total=0,037390
+5.connect=0,000383:transfer=0,000419:total=0,037248
+6.connect=0,000309:transfer=0,000347:total=0,037369
+7.connect=0,000320:transfer=0,000357:total=0,038112
+8.connect=0,000332:transfer=0,000368:total=0,037393
+9.connect=0,000338:transfer=0,000422:total=0,038903
+10.connect=0,000332:transfer=0,000367:total=0,039636
+---------------------------------------------------------------

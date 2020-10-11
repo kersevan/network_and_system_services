@@ -1,0 +1,141 @@
+ned 11 okt 2020 14:22:57 WEST
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        Apache/2.4.41
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /cgi-bin/test.py
+Document Length:        118 bytes
+
+Concurrency Level:      1
+Time taken for tests:   4.251 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      27300 bytes
+Total body sent:        18500
+HTML transferred:       11800 bytes
+Requests per second:    23.52 [#/sec] (mean)
+Time per request:       42.512 [ms] (mean)
+Time per request:       42.512 [ms] (mean, across all concurrent requests)
+Transfer rate:          6.27 [Kbytes/sec] received
+                        4.25 kb/s sent
+                        10.52 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    36   42  12.1     38      98
+Waiting:       32   37   9.9     34      81
+Total:         36   42  12.1     38      98
+
+Percentage of the requests served within a certain time (ms)
+  50%     38
+  66%     39
+  75%     40
+  80%     41
+  90%     62
+  95%     75
+  98%     84
+  99%     98
+ 100%     98 (longest request)
+---------------------------------------------------------------
+ned 11 okt 2020 14:23:16 WEST
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient).....done
+
+
+Server Software:        Apache/2.4.41
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /cgi-bin/test.py
+Document Length:        118 bytes
+
+Concurrency Level:      1
+Time taken for tests:   3.812 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      27300 bytes
+Total body sent:        18500
+HTML transferred:       11800 bytes
+Requests per second:    26.23 [#/sec] (mean)
+Time per request:       38.122 [ms] (mean)
+Time per request:       38.122 [ms] (mean, across all concurrent requests)
+Transfer rate:          6.99 [Kbytes/sec] received
+                        4.74 kb/s sent
+                        11.73 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    36   38   3.2     37      66
+Waiting:       32   34   3.0     33      60
+Total:         36   38   3.2     38      66
+
+Percentage of the requests served within a certain time (ms)
+  50%     38
+  66%     38
+  75%     38
+  80%     38
+  90%     39
+  95%     40
+  98%     48
+  99%     66
+ 100%     66 (longest request)
+---------------------------------------------------------------
+ned 11 okt 2020 14:24:00 WEST
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+
+
+Server Software:        Apache/2.4.41
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /cgi-bin/test.py
+Document Length:        118 bytes
+
+Concurrency Level:      1
+Time taken for tests:   7.749 seconds
+Complete requests:      200
+Failed requests:        0
+Total transferred:      54600 bytes
+Total body sent:        37000
+HTML transferred:       23600 bytes
+Requests per second:    25.81 [#/sec] (mean)
+Time per request:       38.744 [ms] (mean)
+Time per request:       38.744 [ms] (mean, across all concurrent requests)
+Transfer rate:          6.88 [Kbytes/sec] received
+                        4.66 kb/s sent
+                        11.54 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    36   39   2.6     38      66
+Waiting:       32   34   2.3     34      61
+Total:         36   39   2.6     38      66
+
+Percentage of the requests served within a certain time (ms)
+  50%     38
+  66%     39
+  75%     39
+  80%     39
+  90%     41
+  95%     42
+  98%     45
+  99%     48
+ 100%     66 (longest request)
+---------------------------------------------------------------
