@@ -84,3 +84,9 @@ mean: 0.269440 s, variance: 0.000492, standard deviation: 0.022184
 margin of error: 0.003075 s
 with 95% the confidence interval is between 0.266366 s and 0.272515 s
 
+current time is : Mon Oct 12 10:28:44 2020
+number of iterations: 200
+mean: 0.264539 s, variance: 0.003111, standard deviation: 0.055778
+margin of error: 0.007730 s
+with 95% the confidence interval is between 0.256809 s and 0.272269 s
+
