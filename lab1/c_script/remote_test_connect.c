@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 #include <curl/curl.h>
 #include <math.h>
 #include <unistd.h>
-#include <time.h>
+#include<time.h>
 
 // compile
 // gcc script_remote.c -o script_remote -lcurl -lm; ./script_remote 5
@@ -15,15 +15,14 @@ int main(int argc, char *argv[]) {
         num_of_iterations = atoi(argv[1]);
     }
 
-    float times[num_of_iterations];
-
-    clock_t start;
-    clock_t end;
+    double times[num_of_iterations];
 
     CURL *curl;
     CURLcode res;
     curl_global_init(CURL_GLOBAL_ALL);
     curl = curl_easy_init();
+    double connect;
+    long response_code;
     if(curl){
         curl_easy_setopt(curl, CURLOPT_URL, "http://34.125.29.204/cgi-bin/test.py");
         // curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/cgi-bin/test.py");
@@ -32,15 +31,15 @@ int main(int argc, char *argv[]) {
 
         // perform measurements
         for(int i = 0; i < num_of_iterations; i++){
-            start = clock();
             res = curl_easy_perform(curl); 
-            end = clock();
-            times[i] = ((float)(end-start))/CLOCKS_PER_SEC;
             if(res != CURLE_OK){
                 fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
             } else {
-                // res = curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &times[i]);
-                printf("Iteration %d. Time: %lf s\n", i, times[i]);
+                curl_easy_getinfo(curl, CURLINFO_TOTAL_TIME, &times[i]);
+                curl_easy_getinfo(curl, CURLINFO_CONNECT_TIME, &connect);
+                curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+                printf("Iteration %d. Total time: %f, Connect time: %f, response code: %ld\n", i, times[i], connect, response_code);
+                times[i] += connect;
             }
             sleep(1);
         }
