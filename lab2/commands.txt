@@ -1,0 +1,4 @@
+mosquitto_pub -h proxy50.rt3.io:30967 -t 'test' -m 'jel me cujes?'
+
+
+mosquitto_pub -h maqiatto.com -t "gregor.kersevan@gmail.com/test" -u "gregor.kersevan@gmail.com" -P "srsisrsi" -p 1883 -i "topic1asdf" -m "jel me cujes?"
