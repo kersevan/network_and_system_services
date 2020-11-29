@@ -113,7 +113,7 @@ if (numSamples > 101):
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
-    client.subscribe("gregor.kersevan@gmail.com/test")
+    client.subscribe("gregor.kersevan@gmail.com/temp")
 
 def on_message(client, userdata, msg):
     message=msg.payload.decode('utf-8')
