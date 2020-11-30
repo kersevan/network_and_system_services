@@ -1,0 +1,5 @@
+2020-11-30 23:07:20.204218 Number of tests: 100
+The 95% confidence interval is between 27.36 ms and 30.74 ms (29.05 ms +- 5.82%)
+
+2020-11-30 23:08:30.678260 Number of tests: 100
+The 95% confidence interval is between 30.70 ms and 32.53 ms (31.62 ms +- 2.90%)
