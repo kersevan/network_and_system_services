@@ -1,0 +1,19 @@
+
+
+2020-12-01 15:42:21.448290 Number of tests: 10
+The 95% confidence interval is between 0.28 ms and 0.87 ms (0.58 ms +- 51.49%)
+
+2020-12-01 16:10:23.829707 Number of tests: 10
+The 95% confidence interval is between 0.06 ms and 1.41 ms (0.73 ms +- 91.52%)
+
+2020-12-01 16:12:03.079044 Number of tests: 10
+The 95% confidence interval is between 0.37 ms and 0.50 ms (0.44 ms +- 15.58%)
+
+2020-12-01 16:14:15.822728 Number of tests: 100
+The 95% confidence interval is between 0.36 ms and 0.58 ms (0.47 ms +- 22.94%)
+
+2020-12-01 16:18:46.205221 Number of tests: 100
+The 95% confidence interval is between 290.73 ms and 301.14 ms (295.94 ms +- 1.76%)
+
+2020-12-01 16:20:23.147938 Number of tests: 100
+The 95% confidence interval is between 296.33 ms and 306.97 ms (301.65 ms +- 1.76%)
