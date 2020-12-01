@@ -3,3 +3,9 @@ The 95% confidence interval is between 45.67 ms and 51.25 ms (48.46 ms +- 5.75%)
 
 2020-11-29 12:59:05.057000 Number of tests: 100
 The 95% confidence interval is between 44.02 ms and 45.93 ms (44.98 ms +- 2.12%)
+
+2020-12-01 16:21:57.593051 Number of tests: 100
+The 95% confidence interval is between 152.21 ms and 155.90 ms (154.06 ms +- 1.20%)
+
+2020-12-01 16:23:07.086987 Number of tests: 100
+The 95% confidence interval is between 149.11 ms and 151.94 ms (150.52 ms +- 0.94%)

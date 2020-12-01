@@ -3,10 +3,17 @@ import paho.mqtt.client as mqtt
 import sched, time
 import math
 import datetime
+import ssl
 
 auth = {
     'username':"gregor.kersevan@gmail.com",
     'password':"srsisrsi"
+}
+# tls = {
+#     'ca_certs':"ca.cert"
+# }
+tls = {
+    'ca_certs':"ca.crt"
 }
 s = sched.scheduler(time.time, time.sleep)
 start = 0
@@ -37,7 +44,7 @@ def calc_confifence_interval():
     upper = mean + (z95 * std_dev/math.sqrt(observations))
     print("The 95%% confidence interval is between %.2f ms and %.2f ms (%.2f ms +- %.2f%%)" % (lower, upper, mean, (upper-mean)/mean*100))
     
-    f = open("maqiattoResults.txt", "a")
+    f = open("maqiattoSSLResults.txt", "a")
     f.write("\n\n" + str(datetime.datetime.now()) + " Number of tests: " + str(observations))
     f.write("\nThe 95%% confidence interval is between %.2f ms and %.2f ms (%.2f ms +- %.2f%%)" % (lower, upper, mean, (upper-mean)/mean*100))
     f.close()
@@ -47,9 +54,13 @@ def calc_confifence_interval():
 def publish_mqtt(temp):
     global start
     start = time.time()
-    publish.single("gregor.kersevan@gmail.com/test", payload=temp, qos=0, 
-    retain=False, hostname="maqiatto.com", port=1883, client_id="lalal",
-    keepalive=60, will=None, auth=auth, tls=None,
+    # publish.single("gregor.kersevan@gmail.com/test", payload=temp, qos=1, 
+    # retain=False, hostname="maqiatto.com", port=3883, client_id="lalal",
+    # keepalive=60, will=None, auth=auth, tls=None,
+    # protocol=mqtt.MQTTv311, transport="tcp")
+    publish.single("gregor.kersevan@gmail.com/test", payload=temp, qos=1, 
+    retain=False, hostname="maqiatto.com", port=3883, client_id="lalal",
+    keepalive=60, will=None, auth=auth, tls=tls,
     protocol=mqtt.MQTTv311, transport="tcp")
     # start = time.time()
 
@@ -58,6 +69,9 @@ def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe("gregor.kersevan@gmail.com/test")
 
+
+def on_log(client, userdata, level, buf):
+    print("log: ",buf)
 
 def on_message(client, userdata, msg):
     global results
@@ -68,7 +82,7 @@ def on_message(client, userdata, msg):
     message=msg.payload.decode('utf-8')
     print(msg.topic+" "+message)
     result = (end-start)*1000
-    if result < 300:
+    if result < 500:
         numOTimes = numOTimes - 1
         results.append(result)
     if (numOTimes > 0):
@@ -77,12 +91,20 @@ def on_message(client, userdata, msg):
     else:
         calc_confifence_interval()
 
+
+    
+
+
 if __name__ == "__main__":
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
-    client.connect("maqiatto.com", 1883, 60)
+    client.on_log = on_log
+    client.connect("maqiatto.com", 3883, 60)
     client.username_pw_set("gregor.kersevan@gmail.com", "srsisrsi")
+    client.tls_set(ca_certs="ca.crt", certfile=None,
+                            keyfile=None, cert_reqs=ssl.CERT_REQUIRED,
+                            tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
     client.loop_forever()
     publish_mqtt("latency")
 

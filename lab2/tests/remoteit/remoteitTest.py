@@ -46,11 +46,12 @@ def calc_confifence_interval():
 
 def publish_mqtt(temp):
     global start
+    start = time.time()
     publish.single("gregor.kersevan@gmail.com/test", payload=temp, qos=0, 
-    retain=False, hostname="proxy51.rt3.io", port=35284, client_id="lalal",
+    retain=False, hostname="proxy50.rt3.io", port=37317, client_id="lalal",
     keepalive=60, will=None, auth=auth, tls=None,
     protocol=mqtt.MQTTv311, transport="tcp")
-    start = time.time()
+    # start = time.time()
 
 
 def on_connect(client, userdata, flags, rc):
@@ -66,7 +67,7 @@ def on_message(client, userdata, msg):
     message=msg.payload.decode('utf-8')
     print(msg.topic+" "+message)
     result = (end-start)*1000
-    if result < 300:
+    if result < 1000:
         numOTimes = numOTimes - 1
         results.append(result)
     if (numOTimes > 0):
@@ -79,7 +80,7 @@ if __name__ == "__main__":
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_message = on_message
-    client.connect("proxy51.rt3.io", 35284, 60)
+    client.connect("proxy50.rt3.io", 37317, 60)
     client.username_pw_set("gregor.kersevan@gmail.com", "srsisrsi")
     client.loop_forever()
     s.enter(5, 1, publish_mqtt, ("latency",))
