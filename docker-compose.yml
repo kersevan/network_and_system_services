@@ -1,10 +1,5 @@
 version: '3'
 services:
-  web-dvwa:
-    container_name: web-dvwa
-    image: vulnerables/web-dvwa
-    ports:
-      - "8080:80"
   portainer:
     container_name: portainer
     image: portainer/portainer
@@ -16,48 +11,77 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
-  elasticsearch:
-    container_name: elasticsearch  
-    image: elasticsearch:7.7.0
-    hostname: elasticsearch
-    environment: 
-      - "discovery.type=single-node"
+
+  web-dvwa:
+    container_name: web-dvwa
+    image: vulnerables/web-dvwa
     ports:
-      - 9200:9200
-      - 9300:9300
-    networks: 
+      - 8080:80
+    networks:
       - elknetwork
-  kibana:
-    container_name: kibana
-    image: kibana:7.7.0
-    hostname: kibana
+
+  modsecurity:
+    container_name: modsecurity
+    image: owasp/modsecurity-crs
     ports:
-      - 5601:5601
+      - 8081:80
+    environment:
+      - PARANOIA=1
+      - PROXY=1
+      # - UPSTREAM=web-dvwa:80/
+      # - SERVERNAME=web-dvwa:80/
+      - PROXYLOCATION=http://web-dvwa:80/
+    links:
+      - logstash:logstash
+    build: ./modsecurity/
+    privileged: true
+    networks:
+      - elknetwork
+
+  logstash:
+    container_name: logstash
+    image: logstash:7.7.0
+    hostname: logstash
+    ports:
+      - 9600:9600 # monitoring API
+      - 5000:5000 # TCP input 
+      - 5044:5044 # Beats input
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
     links:
       - elasticsearch:elasticsearch
     depends_on:
       - elasticsearch
     networks:
       - elknetwork
-  logstash:
-    container_name: logstash
-    image: logstash:7.7.0
-    hostname: logstash
-    ports:
-      - 9600:9600
-      - 8089:8089
-    volumes:
-      # - ./logstash:/usr/share/logstash/pipeline/
-      - ./logstash:/etc/logstash/conf.d
-    links: 
-      - elasticsearch:elasticsearch
-    depends_on: 
-      - elasticsearch
-    networks: 
-      - elknetwork
-    
 
-networks: 
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:7.7.0
+    hostname: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - discovery.type=single-node
+    ports:
+      - 9200:9200 # HTTP
+      - 9300:9300 # TCP transport
+    networks:
+      - elknetwork
+
+  kibana:
+    container_name: kibana
+    image: kibana:7.7.0
+    hostname: kibana
+    ports:
+      - 5601:5601 # Kibana GUI
+    links:
+      - elasticsearch:elasticsearch
+    depends_on:
+      - elasticsearch
+    networks:
+      - elknetwork
+
+networks:
   elknetwork:
     driver: bridge
 
